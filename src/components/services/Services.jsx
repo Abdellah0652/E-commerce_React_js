@@ -6,7 +6,7 @@ import serviceData from "../../assets/data/serviceData"
 export default function Services() {
   return (
     <Container>
-      <Row>
+      <Row className="item_row">
         {serviceData.map((item, index) => (
           <Col lg="3" md="4" key={index}>
             <motion.div whileHover={{ scale: 1.2 }} className="service__item" style={{ background: `${item.bg}` }}>

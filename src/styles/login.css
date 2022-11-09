@@ -1,0 +1,20 @@
+.auth__form {
+  background: var(--primary-color);
+  padding: 40px;
+  padding: 60px;
+  font-weight: 400;
+
+  border-radius: 5px;
+}
+.auth__btn {
+  position: relative;
+  font-weight: 400;
+  align-items: center;
+  width: 30% !important;
+  color: var(--primary-color) !important;
+  background: white !important;
+}
+.form__group {
+  padding: 15px;
+  font-weight: 400;
+}

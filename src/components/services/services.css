@@ -27,6 +27,9 @@
   color: #222;
 }
 @media only screen and (max-width: 992px) {
+  .item_row {
+    margin-top: 400px;
+  }
   .service__item h3 {
     font-size: 1.6rem;
   }

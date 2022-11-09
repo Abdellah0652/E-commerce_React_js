@@ -1,11 +1,17 @@
 import React, { useRef, useEffect } from "react"
 import "./header.css"
 import { Row, Container } from "reactstrap"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import logo from "../../assets/images/eco-logo.png"
 import userIcon from "../../assets/images/user-icon.png"
 import { useSelector } from "react-redux"
+import Login from "../../pages/Login"
+import useAuth from "../../custom-hooks/useAuth"
+import { signOut } from "firebase/auth"
+import { auth } from "../../firebase.config"
+import { toast } from "react-toastify"
 const nav__link = [
   { path: "home", display: "Home" },
   { path: "shop", display: "Shop" },
@@ -13,10 +19,23 @@ const nav__link = [
 ]
 
 export default function Header() {
+  const navigate = useNavigate()
   const headerRef = useRef(null)
+  const profileActionRef = useRef(null)
+
   const menuRef = useRef(null)
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Logged out")
+        navigate("/home")
+      })
+      .catch(err => {
+        toast.error(err.message)
+      })
+  }
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
       if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -32,6 +51,22 @@ export default function Header() {
   })
 
   const menuToggle = () => menuRef.current.classList.toggle("active__menu")
+  const { currentUser } = useAuth()
+
+  const navigateToCart = () => {
+    navigate("/cart")
+  }
+  const toggleProfileActions = () => {
+    if (profileActionRef.current.classList != "show__profileActions") {
+      profileActionRef.current.classList.remove("profile__actions")
+      profileActionRef.current.classList.toggle("show__profileActions")
+    } else {
+      profileActionRef.current.classList.add("profile__actions")
+
+      profileActionRef.current.classList.remove("show__profileActions")
+    }
+  }
+
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -60,13 +95,32 @@ export default function Header() {
                 <i className="ri-heart-line"></i>
                 <span className="badge">1</span>
               </span>
-              <span className="cart__icon">
+              <span className="cart__icon" onClick={navigateToCart}>
                 <i className="ri-shopping-bag-line"></i>
                 <span className="badge">{totalQuantity}</span>
               </span>{" "}
-              <span>
-                <motion.img whileTap={{ scale: 1.3 }} src={userIcon} alt="" />
-              </span>{" "}
+              <div className="profile">
+                {" "}
+                <motion.img whileTap={{ scale: 1.3 }} src={currentUser ? currentUser.photoURL : userIcon} alt="" onClick={toggleProfileActions} />
+                <div className="profile__actions" ref={profileActionRef}>
+                  {currentUser ? (
+                    <span className="profile__log" onClick={logout}>
+                      Logout
+                    </span>
+                  ) : (
+                    <div className="profile__operation">
+                      <span className="profile__case">
+                        <Link to="/signup">Signup</Link>
+                      </span>
+                      <br></br>
+                      <span className="profile__log">
+                        <Link to="/login">Login</Link>
+                      </span>
+                    </div>
+                  )}
+                </div>
+                {/* <p>{currentUser.displayName}</p> */}
+              </div>{" "}
               <div className="mobile__menu">
                 <span>
                   <i onClick={menuToggle} className="ri-menu-line"></i>

@@ -41,10 +41,10 @@ export default function Shop() {
       <CommonSection title="Products" />
       <section>
         <Container>
-          <Row>
-            <Col lg="3" md="3">
+          <Row className="row__section">
+            <Col lg="3" md="6">
               <div className="filter__widget">
-                <select name="" id="" onChange={handleFilter}>
+                <select name="" className="select__opt" onChange={handleFilter}>
                   <option>Filter by Category</option>
                   <option value="sofa">Sofa</option>
                   <option value="mobile">Mobile</option>
@@ -54,7 +54,7 @@ export default function Shop() {
                 </select>
               </div>
             </Col>
-            <Col lg="3" md="3">
+            <Col lg="3" md="6">
               <div className="filter__widget">
                 <select>
                   <option>Sort By</option>
@@ -63,7 +63,7 @@ export default function Shop() {
                 </select>
               </div>
             </Col>
-            <Col lg="6" md="6">
+            <Col lg="6" md="12">
               <div className="search__box">
                 <input type="text" placeholder="Search ......" onChange={handleSearch} />
                 <span>

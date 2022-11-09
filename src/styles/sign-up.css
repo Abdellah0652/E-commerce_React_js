@@ -1,0 +1,37 @@
+.form-row {
+  display: flex;
+}
+.form-group {
+  padding: 8px 23px;
+}
+.contact-us .row {
+  padding-bottom: 30px;
+  border-radius: 10px;
+  color: white;
+  background: var(--primary-color);
+}
+button {
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+div iframe {
+  width: 100% !important;
+  height: 350px !important;
+  background: white;
+}
+.mapouter {
+  height: 396px;
+  width: 492px;
+}
+.gmap_canvas {
+  overflow: hidden;
+  margin-left: -140px;
+  background: none !important;
+  height: 396px;
+  width: 492px;
+}
+#we {
+  display: flex;
+  flex-wrap: nowrap;
+}

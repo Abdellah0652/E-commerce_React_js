@@ -32,3 +32,15 @@
 .search__box span {
   color: var(--primary-color);
 }
+@media only screen and (max-width: 768px) {
+  .filter__widget {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .search__box {
+    width: 60%;
+    margin-top: -40px;
+    margin-left: 180px;
+  }
+}
