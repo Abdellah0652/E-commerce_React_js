@@ -3,162 +3,138 @@
   height: 70px;
   line-height: 70px;
 }
+
 .nav__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .logo {
   display: flex;
-  column-gap: 8px;
   align-items: center;
+  column-gap: 8px;
 }
+
 .logo img {
-  width: 35px;
-  height: 35px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
+
 .logo h1 {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--primary-color);
 }
+
 .menu {
   display: flex;
   align-items: center;
   column-gap: 2.7rem;
+  margin-bottom: 0;
 }
+.log_ {
+  width: 100px !important;
+  height: 90px !important;
+}
+
 .nav__item a {
   color: var(--primary-color);
   font-weight: 500;
   cursor: pointer;
 }
-.cart__icon,
-.fav__icon {
-  position: relative;
-}
-.badge {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  top: 27%;
-  right: -15%;
-  content: "";
-  background: var(--primary-color);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 10;
-}
+
 .nav__icons {
   display: flex;
   align-items: center;
   column-gap: 1.2rem;
 }
+
 .nav__icons span i {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  cursor: pointer;
 }
+
+.cart__icon,
+.fav__icon {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 25%;
+  right: -8%;
+  width: 15px;
+  height: 15px;
+  content: "";
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
 .nav__icons .profile img {
   width: 30px;
   height: 30px;
+  cursor: pointer;
   border-radius: 50%;
 }
+
 .nav__icons .profile {
   position: relative;
   z-index: 9;
 }
+
 .nav__icons .profile .profile__actions {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 98%;
+  left: -50px;
   width: 150px;
   z-index: 10;
   padding: 15px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: var(--card-bg-01);
+  background: var(--primary-color);
   line-height: 30px;
+  color: #fff;
+  border-radius: 8px;
   display: none;
   cursor: pointer;
 }
+
 .show__profileActions {
-  margin-top: 10px;
-  position: absolute;
-  top: 100%;
-  border-radius: 5px;
-  left: 0;
-
-  width: 130px;
-  z-index: 10;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  line-height: 20px;
-
-  cursor: pointer;
-
-  z-index: 999;
+  display: block !important;
 }
-.profile__operation {
-  top: 0;
-  width: 90px;
 
-  display: block;
-  margin: 20px;
-}
-.profile__case {
-  position: absolute;
-  top: 0px;
-  border-radius: 5px;
-  width: 90px;
-  padding: 5px;
-  background: var(--primary-color);
-  color: #fff;
-  font-weight: 500;
-  align-items: center;
-  text-align: center;
-}
-.profile__log {
-  position: absolute;
-  top: 40px;
-  border-radius: 5px;
-  width: 90px;
-  padding: 5px;
-  background: var(--primary-color);
-  color: #fff;
-  font-weight: 500;
-  align-items: center;
-  text-align: center;
-}
 .mobile__menu {
   font-size: 1.3rem;
   color: var(--primary-color);
+  display: none;
 }
+
 .nav__active {
-  font-weight: 600 !important;
-  color: rgb(85, 197, 212) !important;
+  font-weight: 700 !important;
 }
+
 .sticky__header {
   width: 100%;
-  height: 70px;
+  height: 90px;
   line-height: 70px;
   position: sticky;
-  background: white;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 999;
-  border-style: 3px 3px 8px -3px rgb(33, 30, 30);
+  box-shadow: 3px 3px 8px -3px #ddd;
+  background: #fff;
 }
-.profile__actions {
-}
-.profile {
-}
+
 @media only screen and (max-width: 768px) {
   .navigation {
     position: fixed;
@@ -166,27 +142,36 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.555);
+    background: rgba(0, 0, 0, 0.53);
     z-index: 9999;
     display: none;
   }
+
   .menu {
     position: absolute;
     top: 0;
-    padding: 20px 20px 20px 20px !important;
     right: 0;
-    width: 120px;
+    width: 250px;
     height: 100%;
     background: #fff;
     z-index: 99999;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     justify-content: center;
   }
+
   .active__menu {
     display: block;
   }
+
+  .mobile__menu {
+    display: block;
+  }
+
+  .mobile__menu span i {
+    font-size: 1.1rem !important;
+  }
+
   .logo img {
     width: 1rem;
     height: 1rem;
@@ -194,17 +179,17 @@
   .logo h1 {
     font-size: 1rem;
   }
-  .mobile__menu span i {
-    font-size: 1.1rem !important;
-  }
+
   .fav__icon i,
   .cart__icon i {
     font-size: 1.2rem !important;
   }
+
   .nav__icons span img {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
+
   .header {
     width: 100%;
     height: 60px;

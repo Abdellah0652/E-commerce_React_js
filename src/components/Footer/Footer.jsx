@@ -15,7 +15,7 @@ function Footer() {
             {" "}
             <div className="logo">
               <div>
-                <h1 className="text-white">M</h1>
+                <h1 className="text-white">𝔇𝔦𝔞𝔫𝔞 𝔖𝔱𝔬𝔯𝔢</h1>
                 <p>Since 1995</p>
               </div>
             </div>{" "}

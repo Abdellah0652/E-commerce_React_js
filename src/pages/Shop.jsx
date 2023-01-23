@@ -36,6 +36,17 @@ export default function Shop() {
     const searchedProducts = products.filter(item => item.productName.toLowerCase().includes(searchTerm.toLowerCase()))
     setProductsData(searchedProducts)
   }
+  const handleSort = e => {
+    const filterValue = e.target.value
+    if (filterValue === "ascending") {
+      const filterProducts = products.filter(item => item.price > 300)
+      setProductsData(filterProducts)
+    }
+    if (filterValue === "descending") {
+      const filterProducts = products.filter(item => item.price <= 300)
+      setProductsData(filterProducts)
+    }
+  }
   return (
     <Helmet title="Shop">
       <CommonSection title="Products" />
@@ -56,7 +67,7 @@ export default function Shop() {
             </Col>
             <Col lg="3" md="6">
               <div className="filter__widget">
-                <select>
+                <select onChange={handleSort}>
                   <option>Sort By</option>
                   <option value="ascending">Ascending</option>
                   <option value="descending">Descending</option>

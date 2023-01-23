@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react"
-import { onAuthStateChanged } from "firebase/auth"
-import { auth } from "../firebase.config"
+import { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase.config";
 
-function useAuth() {
-  const [currentUser, setCurrentUser] = useState({})
+const useAuth = () => {
+  const [currentUser, setCurrentUser] = useState({});
+
   useEffect(() => {
-    onAuthStateChanged(auth, user => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
-        setCurrentUser(user)
+        setCurrentUser(user);
+       
       } else {
-        setCurrentUser(null)
+        setCurrentUser(null);
       }
-    })
-  })
-  return {
-    currentUser
-  }
-}
+    });
+  });
 
-export default useAuth
+  return {
+    currentUser,
+  };
+};
+
+export default useAuth;

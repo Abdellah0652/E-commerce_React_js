@@ -4,7 +4,7 @@ import { Row, Container } from "reactstrap"
 import { NavLink, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import logo from "../../assets/images/eco-logo.png"
+import logo from "../../assets/images/log_.png"
 import userIcon from "../../assets/images/user-icon.png"
 import { useSelector } from "react-redux"
 import Login from "../../pages/Login"
@@ -56,16 +56,7 @@ export default function Header() {
   const navigateToCart = () => {
     navigate("/cart")
   }
-  const toggleProfileActions = () => {
-    if (profileActionRef.current.classList != "show__profileActions") {
-      profileActionRef.current.classList.remove("profile__actions")
-      profileActionRef.current.classList.toggle("show__profileActions")
-    } else {
-      profileActionRef.current.classList.add("profile__actions")
-
-      profileActionRef.current.classList.remove("show__profileActions")
-    }
-  }
+  const toggleProfileActions = () => profileActionRef.current.classList.toggle("show__profileActions")
 
   return (
     <header className="header" ref={headerRef}>
@@ -73,10 +64,9 @@ export default function Header() {
         <Row>
           <div className="nav__wrapper">
             <div className="logo">
-              <motion.img whileTap={{ scale: 1.3 }} src={logo} alt="" />
+              <motion.img className="log_" whileTap={{ scale: 1.3 }} src={logo} alt="" />
               <div>
-                <h1>M</h1>
-                <p>Since 1995</p>
+                <h1>𝔇𝔦𝔞𝔫𝔞 𝔖𝔱𝔬𝔯𝔢</h1>
               </div>
             </div>
             <div className="navigation" ref={menuRef} onClick={menuToggle}>
@@ -91,10 +81,6 @@ export default function Header() {
               </ul>
             </div>
             <div className="nav__icons">
-              <span className="fav__icon">
-                <i className="ri-heart-line"></i>
-                <span className="badge">1</span>
-              </span>
               <span className="cart__icon" onClick={navigateToCart}>
                 <i className="ri-shopping-bag-line"></i>
                 <span className="badge">{totalQuantity}</span>
@@ -105,12 +91,16 @@ export default function Header() {
                 <div className="profile__actions" ref={profileActionRef}>
                   {currentUser ? (
                     <span className="profile__log" onClick={logout}>
+                      <p>
+                        Abdellah <br />
+                        Targaoui
+                      </p>
                       Logout
                     </span>
                   ) : (
                     <div className="profile__operation">
                       <span className="profile__case">
-                        <Link to="/signup">Signup</Link>
+                        <Link to="/new">Signup</Link>
                       </span>
                       <br></br>
                       <span className="profile__log">
@@ -119,7 +109,6 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-                {/* <p>{currentUser.displayName}</p> */}
               </div>{" "}
               <div className="mobile__menu">
                 <span>

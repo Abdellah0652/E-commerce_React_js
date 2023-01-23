@@ -1,5 +1,6 @@
 import React from "react"
 import "../styles/cart.css"
+import Choice from "./Choice"
 import Helmet from "../components/Helmet/Helmet"
 import CommonSection from "../components/UI/CommonSection"
 import { Container, Row, Col } from "reactstrap"
@@ -51,7 +52,7 @@ export default function Cart() {
                   <Link to="/shop"> continue shopping</Link>
                 </button>
                 <button className="buy__btn">
-                  <Link to="/checkout"> checkout</Link>
+                  <Link to="/choice"> checkout</Link>
                 </button>
               </div>
             </Col>

@@ -1,12 +1,11 @@
 import { initializeApp } from "firebase/app"
-import { getAnalytics } from "firebase/analytics"
 import { getAuth } from "firebase/auth"
-import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
-
+import { getFirestore } from "firebase/firestore"
 const firebaseConfig = {
   apiKey: "AIzaSyC2LFMCN1nZUQw7xEjClbr9DsaCCwOv3y4",
   authDomain: "e-commerce-77a6c.firebaseapp.com",
+  databaseURL: "https://e-commerce-77a6c-default-rtdb.firebaseio.com",
   projectId: "e-commerce-77a6c",
   storageBucket: "e-commerce-77a6c.appspot.com",
   messagingSenderId: "622493245913",
@@ -15,9 +14,7 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
-export default app
