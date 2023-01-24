@@ -91,10 +91,6 @@ export default function Header() {
                 <div className="profile__actions" ref={profileActionRef}>
                   {currentUser ? (
                     <span className="profile__log" onClick={logout}>
-                      <p>
-                        Abdellah <br />
-                        Targaoui
-                      </p>
                       Logout
                     </span>
                   ) : (
